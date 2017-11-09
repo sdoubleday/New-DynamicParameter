@@ -30,7 +30,7 @@ CompanyName = 'Unknown'
 Copyright = '(c) 2017 sdoubleday. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = "Extension of Adam Bertram`'s New-DynamicParameter function, pairing it with a New-DynamicParameterDictionary function."
+Description = "Extension of Adam Bertram`'s New-DynamicParameter function (see link in module), pairing it with a New-DynamicParameterDictionary function."
 
 # Minimum version of the Windows PowerShell engine required by this module
 # PowerShellVersion = ''
