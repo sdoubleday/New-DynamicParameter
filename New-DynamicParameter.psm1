@@ -6,12 +6,12 @@ Collects dynamic parameters into a dictionary for use
 in a DynamicParam block.
 Functions using dynamic parameters MUST be defined with CmdletBinding blocks.
 .EXAMPLE
-#A function with two dynamic parameters
+#A function with two dynamic parameters, one of which can be affected on the fly by a non-mandatory normal parameter.
 FUNCTION test {
     [CmdletBinding()]
-    PARAM()
+    PARAM($myFilter)
     DynamicParam {
-        $set = Get-ChildItem | Select-Object -ExpandProperty Name | Sort-Object -Unique
+        $set = Get-ChildItem -Filter $myFilter | Select-Object -ExpandProperty Name | Sort-Object -Unique
         (New-DynamicParameter -Name 'parama' -Type String -ValidateSet $set ), (New-DynamicParameter -Name 'paramb' -Type String -ValidateSet 'Bob','Mary','Sue') | New-DynamicParameterDictionary 
     }
     BEGIN{}
