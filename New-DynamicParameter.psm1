@@ -30,7 +30,8 @@ Get-Help test
     PARAM(
         [Parameter(Mandatory = $true, ValueFromPipeline                 = $true)][System.Management.Automation.RuntimeDefinedParameter]$InputRuntimeDefinedParameter
     )
-    BEGIN{$RDPDictionary = New-Object System.Management.Automation.RuntimeDefinedParameterDictionary }
+    BEGIN{Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
+    $RDPDictionary = New-Object System.Management.Automation.RuntimeDefinedParameterDictionary }
     PROCESS{ $RDPDictionary.Add($InputRuntimeDefinedParameter.Name, $InputRuntimeDefinedParameter) }
     END{return $RDPDictionary}
 }
@@ -105,6 +106,7 @@ https://www.adamtheautomator.com/psbloggingweek-dynamic-parameters-and-parameter
 	}
 	
 	$RuntimeParam = New-Object System.Management.Automation.RuntimeDefinedParameter($Name, $Type, $AttribColl)
+    $RuntimeParam | Out-String | Write-Verbose
 	$RuntimeParam
 	
 }<#End Function New-DynamicParameter#>
