@@ -1,0 +1,1 @@
+Module for creating dynamic parameters. Function New-DynamicParameter is credit to Adam Bertram (https://www.adamtheautomator.com/psbloggingweek-dynamic-parameters-and-parameter-validation/), and I added the function New-DynamicParameterDictionary to collect the output of New-DynamicParameter and return it as a RuntimeDefinedParameterDictionary for use in a DynamicParam{} block.
